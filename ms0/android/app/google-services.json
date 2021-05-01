@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "664585552617",
+    "project_id": "favapps-f817e",
+    "storage_bucket": "favapps-f817e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664585552617:android:0173f421ed59d5fdefe678",
+        "android_client_info": {
+          "package_name": "com.yahia.ms0"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664585552617-mabollqj0eihvolnhl8uc0vc7cm9n316.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA22vI7i9nTi6D7cT8CVCWQzg5aFkAuIGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664585552617-mabollqj0eihvolnhl8uc0vc7cm9n316.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
