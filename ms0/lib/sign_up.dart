@@ -17,7 +17,10 @@ class _SignUp extends State<SignUP> {
       return "Password is Required";
     }else if(pass.length < 6) {
       return "Password should be at least 6 characters";
-    }else
+    }else if (pass != pass2){
+      return "Password mismatch";
+    }
+    else
       return null;
   }
   Future signUpWithMail() async{
@@ -26,23 +29,14 @@ class _SignUp extends State<SignUP> {
   Future signInWithMail() async{
     return AuthFev().signInWithMail(mail, pass);
   }
-  String mail , pass;
+  String mail , pass,pass2;
   final logo = Image.asset("assets/logo.png", width: 250, height: 250);
-//
-  String validatePassword(String value) {
-    if (value.isEmpty) {
-      return "* Required";
-    } else if (value.length < 6) {
-      return "Password should be atleast 6 characters";
-    } else if (value.length > 15) {
-      return "Password should not be greater than 15 characters";
-    } else
-      return null;
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
+        body:
+            SingleChildScrollView(
+        child:Container(
             padding: EdgeInsets.only(left: 24.0, right: 24.0),
             child: Column(
                 children: [
@@ -87,6 +81,24 @@ class _SignUp extends State<SignUP> {
                           borderRadius: BorderRadius.circular(32.0)),
                     ),
                   ),
+                    SizedBox(height: 8),
+                    TextFormField(
+                      autofocus: false,
+                      onChanged: (val){
+                        setState(() {
+                          pass2 = val;
+                        });
+                      },
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
+                        hintText: ' confirm Password',
+                        contentPadding: EdgeInsets.fromLTRB(
+                            20.0, 10.0, 20.0, 10.0),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(32.0)),
+                      ),
+                    ),
                   SizedBox(height: 24),
                   Container(
                     width: double.infinity,
@@ -113,6 +125,6 @@ class _SignUp extends State<SignUP> {
                           child: Text('Register', style: TextStyle(color: Colors.white)),
                         )),
                   ),
-                ]))])));
+                ]))]))));
   }
 }

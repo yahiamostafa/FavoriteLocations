@@ -21,6 +21,9 @@ class LoginPage extends StatelessWidget {
   Future <void> signInWithGoogle() async {
     await AuthFev().signInWithGoogle();
   }
+  // Future<void> signInAnonymously() async{
+  //   await AuthFev().signInAnonymously();
+  // }
   Future signInWithMail() async{
     return AuthFev().signInWithMail(mail.text.toString(), pass.text.toString());
   }
@@ -43,7 +46,13 @@ final line = Padding(
   @override
   Widget build(BuildContext context) {
 return Scaffold(
-body: Container(
+  floatingActionButton: FloatingActionButton(
+    child:Icon(Icons.app_registration),
+    onPressed: () => {Navigator.push(context, MaterialPageRoute(builder: (_)=>SignUP()))},
+  ),
+body:
+SingleChildScrollView(
+child:Container(
 padding: EdgeInsets.only(left: 24.0, right: 24.0),
 child: Column(
 children: [
@@ -142,21 +151,34 @@ child: Padding(
             style: TextStyle(color: Colors.blue[700]))
       ]))
   ),
-)
 ),
-  Expanded(
-    child: Align(
-      alignment: FractionalOffset.bottomCenter,
-      child: MaterialButton(
-        onPressed: () => {Navigator.push(context, MaterialPageRoute(builder: (_)=>SignUP()))},
-        child: Text("Create Account",
-          style: TextStyle(color: Colors.black, fontSize: 18),),
-      ),
-    ),
-  )
+),
+  SizedBox(height: 12),
+  // Container(
+  //   width: double.infinity,
+  //   child: Padding(
+  //     padding: EdgeInsets.symmetric(vertical: 16.0),
+  //     child: FloatingActionButton(
+  //         heroTag: "f3",
+  //         backgroundColor: Colors.white,
+  //         onPressed: signInAnonymously,
+  //         shape: RoundedRectangleBorder(
+  //           borderRadius: BorderRadius.circular(24),
+  //         ),
+  //         child: Center(child: Row(children: [
+  //           SizedBox(width: 10),
+  //           Padding(padding: EdgeInsets.only(left: 5)),
+  //           Image.asset("assets/google.png"),
+  //           SizedBox(width: 40,),
+  //           Text('Sign in Anonymously',
+  //               style: TextStyle(color: Colors.black))
+  //         ]))
+  //     ),
+  //   ),
+  // ),
 ],
 ),
 )
-);
+));
   }
 }

@@ -63,8 +63,8 @@ bool check(){
             onPressed: (){
               bool value = check();
               if (value){
-                SecondScreen.add_item(Location(id: SecondScreen.getCounter(),name:name.text.toString(), imageUrl :image.text.toString(), description:desc.text.toString(), theme : theme.text.toString(), locationUrl:location.text.toString(),rate:0.0));
-                Navigator.push(context, MaterialPageRoute(builder: (_)=>SecondScreen()));
+                SecondScreen.add_item(Location(id: SecondScreen.getCounter(),name:name.text.toString(), imageUrl :image.text.toString(), description:desc.text.toString(), theme : theme.text.toString(), locationUrl:location.text.toString()));
+                Navigator.of(context).pop();
               }
             },
           )
@@ -142,3 +142,4 @@ bool check(){
     );
   }
 }
+
